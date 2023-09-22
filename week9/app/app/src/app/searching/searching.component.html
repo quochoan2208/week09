@@ -1,0 +1,31 @@
+
+<div class="search-container">
+    <h2>Searching</h2>
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Product name">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+  
+  <div class="search-results" *ngIf="searchResults.length > 0">
+    <h3>Result </h3>
+    <ul style="list-style: none;">
+      <li *ngFor="let product of searchResults">
+        <b>Name: </b>{{ product.name }}
+        <br>
+        <b>Description: </b> 
+        {{ product.description }} 
+        <br>
+        <b>Price: </b>
+        {{ product.price }}
+        <br> 
+        <b>Unit: </b>
+        {{ product.unit }}
+        <br>
+      </li>
+    </ul>
+  </div>
+  
